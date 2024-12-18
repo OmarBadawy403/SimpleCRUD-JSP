@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Buttons</title>
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1625225233840-695456021cde?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            padding: 30px;
+            width: 400px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        .radio-group input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .radio-group {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .radio-group label {
+            margin-right: 15px;
+        }
+
+        .btn {
+            width: 48%;
+            padding: 12px;
+            margin: 10px 1%;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-add {
+            background-color: #078a1f;
+        }
+
+        .btn-view {
+            background-color: #0670d4;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .gender-group {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Styles for messages */
+        .message {
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .message.success {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .message.error {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Student Registration</h2>
+        <!-- Form for Adding Student -->
+        <form id="studentForm" action="addStudent.jsp" method="POST" onsubmit="return handleFormSubmit(event)">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="egypt">Egypt</option>
+                <option value="saudi_arabia">Saudi Arabia</option>
+                <option value="usa">USA</option>
+                <option value="uk">UK</option>
+                <option value="uae">UAE</option>
+            </select>
+
+            <label>Gender</label>
+            <div class="gender-group">
+                <label for="male"><input type="radio" id="male" name="gender" value="male"> Male</label>
+                <label for="female"><input type="radio" id="female" name="gender" value="female"> Female</label>
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="btn btn-add">Add Student</button>
+                <a href="viewStudent.jsp" class="btn btn-view">View Students</a>
+            </div>
+        </form>
+
+        <!-- Message Section -->
+        <div id="messageContainer"></div>
+    </div>
+
+    
+</body>
+</html>
